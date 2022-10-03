@@ -9,7 +9,7 @@ SRC_URI[md5sum] = "e2c3992b04d0c69a330cbe37cda305ae"
 SRC_URI[sha256sum] = "a5ac2a0a2ef55bf7962ec9380b221864cee53ecea280dac1f2f70a2ffbfa4fa4"
 S = "${WORKDIR}/${PN}-${PV}"
 
-PACKAGES = "${PN} ${PN}-dev ${PN}-doc ${PN}-python ${PN}-gstreamer"
+PACKAGES = "${PN}-dev ${PN}-doc ${PN}-python ${PN}-gstreamer ${PN}"
 
 DEPENDS = "python3 python3-pip-native gstreamer1.0 gstreamer1.0-plugins-base deepview-rt"
 RDEPENDS_${PN}-python = "python3 python3-cffi"
