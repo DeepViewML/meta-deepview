@@ -5,11 +5,11 @@ LIC_FILES_CHKSUM = "file://doc/LICENSE.txt;md5=e153ccee5db0d7cbd514bc6ba454f981"
 inherit python3-dir
 
 SRC_URI = "https://deepviewml.com/videostream/videostream-${PV}-linux-armv8.zip;subdir=${S}"
-SRC_URI[md5sum] = "bbecf5623bb8f622c86d7355a85b0868"
-SRC_URI[sha256sum] = "4af4701d2b9b2faf23bfcdd6e5b673878392c10494eb051a5179bd818499950e"
+SRC_URI[md5sum] = "c074eb4e804867f385538f713146ee5a"
+SRC_URI[sha256sum] = "a4d04d1ca1c345c43349fe03694aa7c2b8153050b774dd425da8c322daa60b86"
 S = "${WORKDIR}/${PN}-${PV}"
 
-PACKAGES = "${PN} ${PN}-dev ${PN}-doc ${PN}-python ${PN}-gstreamer"
+PACKAGES = "${PN}-dev ${PN}-doc ${PN}-python ${PN}-gstreamer ${PN}"
 
 DEPENDS = "python3 python3-pip-native gstreamer1.0 gstreamer1.0-plugins-base"
 RDEPENDS_${PN}-python = "python3 python3-cffi"
