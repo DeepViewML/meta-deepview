@@ -3,4 +3,4 @@ PACKAGE_ARCH = "${TUNE_PKGARCH}"
 
 inherit packagegroup
 
-RDEPENDS:${PN} = "vaal vaal-gstreamer vaal-python videostream videostream-gstreamer videostream-python"
+RDEPENDS:${PN} = "deepview-rt deepview-rt-python vaal vaal-gstreamer vaal-python videostream videostream-gstreamer videostream-python"
