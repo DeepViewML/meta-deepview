@@ -4,7 +4,7 @@ This repository contains meta-deepview which provides the DeepView AI Middleware
 layers for Yocto.  It provides up-to-date packages for VisionPack and
 dependencies along with the various demos Au-Zone has made available.
 
-Visit https://support.deepviewml.com for support and documentation.
+Visit [VisionPack for Yocto][1] for support and documentation.
 
 ## License
 
@@ -15,3 +15,6 @@ these recipes and the software which they install for evaluation purposes only.
 Alternatively the repository can be licensed under the terms of a commercial
 software agreement signed with Au-Zone Technologies and the end-user.  Contact
 info@au-zone.com or visit embeddedml.com for details.
+
+---
+[1]: https://support.deepviewml.com/hc/en-us/articles/9623221808141-VisionPack-for-Yocto
