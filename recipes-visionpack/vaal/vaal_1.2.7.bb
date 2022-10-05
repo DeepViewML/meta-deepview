@@ -9,7 +9,7 @@ SRC_URI[md5sum] = "e2c3992b04d0c69a330cbe37cda305ae"
 SRC_URI[sha256sum] = "a5ac2a0a2ef55bf7962ec9380b221864cee53ecea280dac1f2f70a2ffbfa4fa4"
 S = "${WORKDIR}/${PN}-${PV}"
 
-PACKAGES = "${PN}-dev ${PN}-doc ${PN}-python ${PN}-gstreamer ${PN}"
+PACKAGES = "${PN}-dev ${PN}-doc ${PN}-python ${PN}-gstreamer ${PN}-apps ${PN}"
 
 DEPENDS = "python3 python3-pip-native gstreamer1.0 gstreamer1.0-plugins-base deepview-rt"
 RDEPENDS_${PN}-python = "python3 python3-cffi"
@@ -20,6 +20,7 @@ do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
 do_install () {
+    install -d ${D}${bindir}
     install -d ${D}${libdir}
     install -d ${D}${libdir}/gstreamer-1.0
     install -d ${D}${libdir}/cmake
@@ -27,6 +28,7 @@ do_install () {
     install -d ${D}/${PYTHON_SITEPACKAGES_DIR}/deepview
     install -d ${D}/${docdir}/${PN}
 
+    cp -rP  ${S}/bin/* ${D}${bindir}
     cp -rP  ${S}/lib/*so* ${D}${libdir}
     cp -rP  ${S}/lib/gstreamer-1.0/*so* ${D}${libdir}/gstreamer-1.0
     cp -r  ${S}/lib/cmake/* ${D}${libdir}/cmake
@@ -44,6 +46,7 @@ FILES:${PN}-dev += "${libdir}/cmake"
 FILES:${PN}-gstreamer += "${libdir}/gstreamer-1.0"
 FILES:${PN}-doc += "${docdir}"
 FILES:${PN}-python += "${PYTHON_SITEPACKAGES_DIR}"
+FILES:${PN}-apps += "${bindir}"
 FILES:${PN} += "${libdir}"
 
 INHIBIT_PACKAGE_STRIP = "1"
