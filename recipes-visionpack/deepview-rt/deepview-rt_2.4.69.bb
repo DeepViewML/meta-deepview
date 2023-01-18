@@ -5,8 +5,8 @@ LIC_FILES_CHKSUM = "file://doc/LICENSE.rtf;md5=9c227e8e93757feebd98ec96cd51b715"
 inherit python3-dir
 
 SRC_URI = "https://deepviewml.com/rt/deepview-rt-${PV}-linux-armv8.tar.gz;subdir=${S}"
-SRC_URI[md5sum] = "31faa41f8d185160debc8af80b10243e"
-SRC_URI[sha256sum] = "907f70057f7afef3396a7992c9b7ba6295514180bc9017aa6b4ec05289aff5c1"
+SRC_URI[md5sum] = "0bcd0c9582c689767ea45e4143c0e64d"
+SRC_URI[sha256sum] = "fb24db94a94ade5ea257fe49000d22de8f04fda4e11d3b04fbc2f095a8831feb"
 S = "${WORKDIR}/${PN}-${PV}"
 
 PACKAGECONFIG ?= " \
