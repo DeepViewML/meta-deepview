@@ -5,8 +5,7 @@ LIC_FILES_CHKSUM = "file://doc/LICENSE.txt;md5=e153ccee5db0d7cbd514bc6ba454f981"
 inherit python3-dir
 
 SRC_URI = "https://deepviewml.com/vaal/vaal-${PV}-linux-armv8.zip;subdir=${S}"
-SRC_URI[md5sum] = "4e4095d5a85bcac3ce4997a41014a39f"
-SRC_URI[sha256sum] = "22ec3eb8dc54e52adc154fc52f39ffe73a8e6328f37c52bb54117b5c24c98644"
+SRC_URI[sha256sum] = "24d0dba98422d06afeafea26288b439e851ea4f7374d1a7856f3001df17e418e"
 S = "${WORKDIR}/${PN}-${PV}"
 
 PACKAGES = "${PN}-dev ${PN}-doc ${PN}-python ${PN}-gstreamer ${PN}-apps ${PN}"
