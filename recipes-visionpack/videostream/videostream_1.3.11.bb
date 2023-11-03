@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://doc/LICENSE.txt;md5=e153ccee5db0d7cbd514bc6ba454f981"
 inherit python3-dir
 
 SRC_URI = "https://deepviewml.com/videostream/videostream-${PV}-linux-armv8.zip;subdir=${S}"
-SRC_URI[sha256sum] = "e47865333e0117d5addf532ee87e87b0c241e40574ba7e7135a24d8d056f029d"
+SRC_URI[sha256sum] = "e6cf30a9ced279156831af0718afdf392a5cc8c781a2604bd4c9737491d680ba"
 S = "${WORKDIR}/${PN}-${PV}"
 
 PACKAGES = "${PN}-dev ${PN}-doc ${PN}-python ${PN}-gstreamer ${PN}-camhost ${PN}"
