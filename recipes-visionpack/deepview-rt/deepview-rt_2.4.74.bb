@@ -28,7 +28,7 @@ PACKAGECONFIG_OPENVX:mx8ulp-nxp-bsp   = ""
 
 PACKAGECONFIG[openvx] = ",,,libopenvx-imx"
 
-PACKAGES = "${PN}-dev ${PN}-doc ${PN}-python ${PN}"
+PACKAGES = "${PN}-dev ${PN}-doc ${PN}-python ${PN}-modelrunner ${PN}"
 
 DEPENDS = "python3 python3-pip-native"
 RDEPENDS_${PN}-python = "python3 python3-cffi"
@@ -38,12 +38,14 @@ do_configure[noexec] = "1"
 do_compile[noexec] = "1"
 
 do_install () {
+    install -d ${D}${bindir}
     install -d ${D}${libdir}
     install -d ${D}${libdir}/cmake
     install -d ${D}${includedir}
     install -d ${D}/${PYTHON_SITEPACKAGES_DIR}/deepview
     install -d ${D}/${docdir}/${PN}
 
+    cp ${S}/bin/modelrunner ${D}${bindir}
     cp -rP  ${S}/lib/*so* ${D}${libdir}
     cp -r  ${S}/lib/cmake/* ${D}${libdir}/cmake
     cp -r  ${S}/include/* ${D}${includedir}
@@ -64,6 +66,7 @@ FILES:${PN}-dev += "${libdir}/libdeepview-rt.so"
 FILES:${PN}-dev += "${libdir}/cmake"
 FILES:${PN}-doc += "${docdir}"
 FILES:${PN}-python += "${PYTHON_SITEPACKAGES_DIR}"
+FILES:${PN}-modelrunner += "${bindir}/modelrunner"
 FILES:${PN} += "${libdir}"
 
 INHIBIT_PACKAGE_STRIP = "1"
