@@ -42,6 +42,7 @@ do_install () {
 FILES_SOLIBSDEV = ""
 
 FILES:${PN}-apps += "${bindir}"
+FILES:${PN}-apps += "${systemd_system_unitdir}"
 FILES:${PN} += "${libdir}"
 
 INHIBIT_PACKAGE_STRIP = "1"
