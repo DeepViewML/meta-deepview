@@ -1,7 +1,7 @@
 [Unit]
 Description=People Detection Sample
-Requires=imx8-isp.service NetworkManager-wait-online.service
-After=imx8-isp.service NetworkManager-wait-online.service
+Requires=NetworkManager-wait-online.service
+After=NetworkManager-wait-online.service
 Conflicts=segmentation.service headpose.service facedetect.service faceblur.service bodypose.service
 
 StartLimitAction=reboot

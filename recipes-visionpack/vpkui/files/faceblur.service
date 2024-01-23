@@ -1,7 +1,7 @@
 [Unit]
 Description=Face Blur Sample
-Requires=imx8-isp.service NetworkManager-wait-online.service
-After=imx8-isp.service NetworkManager-wait-online.service
+Requires=NetworkManager-wait-online.service
+After=NetworkManager-wait-online.service
 Conflicts=detection.service headpose.service facedetect.service segmentation.service bodypose.service
 
 StartLimitAction=reboot
