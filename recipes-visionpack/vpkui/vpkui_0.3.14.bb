@@ -5,13 +5,15 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-2.0-only;m
 inherit python3-dir systemd
 
 SRC_URI = "https://deepviewml.com/vpkui/vpkui-${PV}-linux-armv8.zip;subdir=${S}"
-SRC_URI += "file://segmentation.service"
-SRC_URI += "file://detection.service"
-SRC_URI += "file://facedetect.service"
-SRC_URI += "file://faceblur.service"
-SRC_URI += "file://headpose.service"
-SRC_URI += "file://bodypose.service"
+SRC_URI += "file://vpkui.default"
+SRC_URI += "file://segmentationui.service"
+SRC_URI += "file://detectionui.service"
+SRC_URI += "file://facedetectui.service"
+SRC_URI += "file://faceblurui.service"
+SRC_URI += "file://headposeui.service"
+SRC_URI += "file://bodyposeui.service"
 SRC_URI[sha256sum] = "a2c556c6cd7e6de9c7e3aa5dc1eaace7824da44e22b09534167d1917a5d97828"
+
 S = "${WORKDIR}/${PN}-${PV}"
 
 PACKAGES = "${PN}-apps ${PN}"
@@ -25,16 +27,18 @@ do_compile[noexec] = "1"
 
 do_install () {
     install -d ${D}${bindir}
-    install -d ${D}${systemd_system_unitdir}
-
     cp -rP  ${S}/bin/*_headless ${D}${bindir}
 
-    install -m 0644 ${WORKDIR}/segmentation.service ${D}${systemd_system_unitdir}
-    install -m 0644 ${WORKDIR}/detection.service ${D}${systemd_system_unitdir}
-    install -m 0644 ${WORKDIR}/facedetect.service ${D}${systemd_system_unitdir}
-    install -m 0644 ${WORKDIR}/faceblur.service ${D}${systemd_system_unitdir}
-    install -m 0644 ${WORKDIR}/headpose.service ${D}${systemd_system_unitdir}
-    install -m 0644 ${WORKDIR}/bodypose.service ${D}${systemd_system_unitdir}
+    install -d ${D}${systemd_system_unitdir}
+    install -m 0644 ${WORKDIR}/segmentationui.service ${D}${systemd_system_unitdir}
+    install -m 0644 ${WORKDIR}/detectionui.service ${D}${systemd_system_unitdir}
+    install -m 0644 ${WORKDIR}/facedetectui.service ${D}${systemd_system_unitdir}
+    install -m 0644 ${WORKDIR}/faceblurui.service ${D}${systemd_system_unitdir}
+    install -m 0644 ${WORKDIR}/headposeui.service ${D}${systemd_system_unitdir}
+    install -m 0644 ${WORKDIR}/bodyposeui.service ${D}${systemd_system_unitdir}
+
+    install -d ${D}${sysconfdir}/default
+    install -m 0644 ${WORKDIR}/vpkui.default ${D}${sysconfdir}/default/vpkui
 
     chown -R root:root "${D}"
 }
@@ -43,6 +47,7 @@ FILES_SOLIBSDEV = ""
 
 FILES:${PN}-apps += "${bindir}"
 FILES:${PN}-apps += "${systemd_system_unitdir}"
+FILES:${PN}-apps += "${sysconfdir}/default"
 FILES:${PN} += "${libdir}"
 
 INHIBIT_PACKAGE_STRIP = "1"
